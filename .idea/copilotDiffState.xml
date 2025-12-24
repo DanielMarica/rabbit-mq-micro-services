@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/repository/customerRepository.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/repository/customerRepository.java" />
+              <option name="originalContent" value="package src.main.java.com.example.api_gateway.repository;&#10;&#10;package com.example.customerservice.repository;&#10;&#10;import com.example.customerservice.model.Customer;&#10;import org.springframework.data.jpa.repository.JpaRepository;&#10;import org.springframework.stereotype.Repository;&#10;&#10;@Repository&#10;public interface CustomerRepository extends JpaRepository&lt;Customer, Long&gt; {&#10;  // Spring Data JPA génère automatiquement les méthodes CRUD&#10;}" />
+              <option name="updatedContent" value="package com.example.api_gateway.repository;&#10;&#10;import com.example.api_gateway.model.Customer;&#10;import org.springframework.data.jpa.repository.JpaRepository;&#10;import org.springframework.stereotype.Repository;&#10;&#10;@Repository&#10;public interface CustomerRepository extends JpaRepository&lt;Customer, Long&gt; {&#10;  // Spring Data JPA génère automatiquement les méthodes CRUD&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/services/customerService.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/api-gateway/src/main/java/com/example/api_gateway/services/customerService.java" />
+              <option name="originalContent" value="package src.main.java.com.example.api_gateway.services;&#10;&#10;import com.example.customerservice.model.Customer;&#10;import com.example.customerservice.repository.CustomerRepository;&#10;import org.springframework.beans.factory.annotation.Autowired;&#10;import org.springframework.stereotype.Service;&#10;&#10;import java.util.List;&#10;import java.util.Optional;&#10;&#10;@Service&#10;public class CustomerService {&#10;&#10;  @Autowired&#10;  private CustomerRepository customerRepository;&#10;&#10;  // Récupérer tous les clients&#10;  public List&lt;Customer&gt; getAllCustomers() {&#10;    return customerRepository.findAll();&#10;  }&#10;&#10;  // Récupérer un client par ID&#10;  public Optional&lt;Customer&gt; getCustomerById(Long id) {&#10;    return customerRepository.findById(id);&#10;  }&#10;&#10;  // Créer un nouveau client&#10;  public Customer createCustomer(Customer customer) {&#10;    return customerRepository.save(customer);&#10;  }&#10;&#10;  // Supprimer un client&#10;  public void deleteCustomer(Long id) {&#10;    customerRepository.deleteById(id);&#10;  }&#10;}" />
+              <option name="updatedContent" value="package com.example.api_gateway.services;&#10;&#10;import com.example.api_gateway.model.Customer;&#10;import com.example.api_gateway.repository.CustomerRepository;&#10;import org.springframework.beans.factory.annotation.Autowired;&#10;import org.springframework.stereotype.Service;&#10;&#10;import java.util.List;&#10;import java.util.Optional;&#10;&#10;@Service&#10;public class CustomerService {&#10;&#10;  @Autowired&#10;  private CustomerRepository customerRepository;&#10;&#10;  // Récupérer tous les clients&#10;  public List&lt;Customer&gt; getAllCustomers() {&#10;    return customerRepository.findAll();&#10;  }&#10;&#10;  // Récupérer un client par ID&#10;  public Optional&lt;Customer&gt; getCustomerById(Long id) {&#10;    return customerRepository.findById(id);&#10;  }&#10;&#10;  // Créer un nouveau client&#10;  public Customer createCustomer(Customer customer) {&#10;    return customerRepository.save(customer);&#10;  }&#10;&#10;  // Supprimer un client&#10;  public void deleteCustomer(Long id) {&#10;    customerRepository.deleteById(id);&#10;  }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
