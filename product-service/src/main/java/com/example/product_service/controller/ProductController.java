@@ -14,35 +14,35 @@ import java.util.Optional;
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+  @Autowired
+  private ProductService productService;
 
-    @GetMapping
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
-    }
+  @GetMapping
+  public List<Product> getAllProducts() {
+    return productService.getAllProducts();
+  }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        Optional<Product> product = productService.getProductById(id);
-        return product.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
+  @GetMapping("/{id}")
+  public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+    Optional<Product> product = productService.getProductById(id);
+    return product.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+  }
 
-    @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        Product created = productService.createProduct(product);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
-    }
+  @PostMapping
+  public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    Product created = productService.createProduct(product);
+    return ResponseEntity.status(HttpStatus.CREATED).body(created);
+  }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
-        return ResponseEntity.noContent().build();
-    }
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+    productService.deleteProduct(id);
+    return ResponseEntity.noContent().build();
+  }
 
-    @GetMapping("/{id}/check-stock")
-    public ResponseEntity<Boolean> checkStock(@PathVariable Long id, @RequestParam Integer quantity) {
-        boolean available = productService.checkStock(id, quantity);
-        return ResponseEntity.ok(available);
-    }
+  @GetMapping("/{id}/check-stock")
+  public ResponseEntity<Boolean> checkStock(@PathVariable Long id, @RequestParam Integer quantity) {
+    boolean available = productService.checkStock(id, quantity);
+    return ResponseEntity.ok(available);
+  }
 }
