@@ -1,55 +1,26 @@
-package com.example.order_service.messaging.events;
+package com.example.product_service.messaging.events;
 
-import java.io.Serializable;
-
-public class StockReservedEvent implements Serializable {
-
+public class StockReservedEvent {
   private Long orderId;
   private Long productId;
   private Integer quantity;
-  private boolean success;
 
-  public StockReservedEvent() {
-  }
+  public StockReservedEvent() {}
 
-  public StockReservedEvent(Long orderId, Long productId, Integer quantity, boolean success) {
+  public StockReservedEvent(Long orderId, Long productId, Integer quantity) {
     this.orderId = orderId;
     this.productId = productId;
     this.quantity = quantity;
-    this.success = success;
   }
 
-  public Long getOrderId() {
-    return orderId;
-  }
+  public Long getOrderId() { return orderId; }
+  public void setOrderId(Long orderId) { this.orderId = orderId; }
 
-  public void setOrderId(Long orderId) {
-    this.orderId = orderId;
-  }
+  public Long getProductId() { return productId; }
+  public void setProductId(Long productId) { this.productId = productId; }
 
-  public Long getProductId() {
-    return productId;
-  }
-
-  public void setProductId(Long productId) {
-    this.productId = productId;
-  }
-
-  public Integer getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(Integer quantity) {
-    this.quantity = quantity;
-  }
-
-  public boolean isSuccess() {
-    return success;
-  }
-
-  public void setSuccess(boolean success) {
-    this.success = success;
-  }
+  public Integer getQuantity() { return quantity; }
+  public void setQuantity(Integer quantity) { this.quantity = quantity; }
 
   @Override
   public String toString() {
@@ -57,7 +28,6 @@ public class StockReservedEvent implements Serializable {
         "orderId=" + orderId +
         ", productId=" + productId +
         ", quantity=" + quantity +
-        ", success=" + success +
         '}';
   }
 }

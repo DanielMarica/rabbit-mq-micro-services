@@ -40,4 +40,26 @@ public class ProductService {
             .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
         return product.getStock() >= quantity;
     }
+    // Réserver du stock
+    public boolean reserveStock(Long id, Integer quantity) {
+        try {
+            Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
+
+            // Vérifier si le stock est suffisant
+            if (product.getStock() < quantity) {
+                return false;  // Stock insuffisant
+            }
+
+            // Réduire le stock
+            product.setStock(product.getStock() - quantity);
+            productRepository.save(product);
+
+            System.out.println("✅ Stock reserved: " + quantity + " units for product " + id);
+            return true;  // Réservation réussie
+        } catch (Exception e) {
+            System.err.println("❌ Error reserving stock: " + e.getMessage());
+            return false;
+        }
+    }
 }
